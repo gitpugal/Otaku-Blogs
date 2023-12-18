@@ -3,7 +3,15 @@ const router = express.Router();
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const connectDB = require("../index.js")
+const connectDB = async()=>{
+  try{
+    await mongoose.connect(process.env.MONGO_URL)
+    console.log("Database Connected Successfully!!")
+  } catch(err){
+    console.log(err)
+  }
+}
+connectDB();
 //register
 router.post("/register", async (req, res) => {
   try {
