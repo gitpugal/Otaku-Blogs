@@ -21,7 +21,7 @@ const connectDB = async()=>{
     console.log(err)
   }
 }
-
+connectDB();
 dotenv.config()
 
 app.use(express.json())
