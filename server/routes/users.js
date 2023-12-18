@@ -6,7 +6,15 @@ const Post = require("../models/Post")
 const Comment = require("../models/Comment")
 const verifyToken = require('../verifyToken')
 
-
+const connectDB = async()=>{
+  try{
+    await mongoose.connect(process.env.MONGO_URL)
+    console.log("Database Connected Successfully!!")
+  } catch(err){
+    console.log(err)
+  }
+}
+connectDB();
 router.put("/:id",verifyToken,async(req,res)=>{
   try{
       if(req.body.password){
