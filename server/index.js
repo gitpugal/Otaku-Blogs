@@ -30,7 +30,9 @@ app.use("/api/user",userRoute)
 app.use("/api/posts",postRoute)
 app.use("/api/comments",commentRoute)
 app.use("/images",express.static(path.join(__dirname,"/images")))
-
+app.get("/", (req, res) =>{
+  res.send("API IS RUNNING")
+})
 const storage=multer.diskStorage({
   destination:(req,file,fn)=>{
       fn(null,"images")
