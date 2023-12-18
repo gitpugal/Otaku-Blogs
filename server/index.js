@@ -26,7 +26,7 @@ dotenv.config()
 
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({origin:'https://otaku-blogs.vercel.app/',credentials:true}))
+app.use(cors())
 app.use("/api/auth",authRoute)
 app.use("/api/user",userRoute)
 app.use("/api/posts",postRoute)
