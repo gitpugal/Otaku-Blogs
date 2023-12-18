@@ -5,7 +5,15 @@ const bcrypt=require('bcrypt')
 const Post=require('../models/Post')
 const Comment=require('../models/Comment')
 const verifyToken = require("../verifyToken")
-
+const connectDB = async()=>{
+  try{
+    await mongoose.connect(process.env.MONGO_URL)
+    console.log("Database Connected Successfully!!")
+  } catch(err){
+    console.log(err)
+  }
+}
+connectDB();
 //CREATE
 router.post("/create",verifyToken,async (req,res)=>{
     try{
