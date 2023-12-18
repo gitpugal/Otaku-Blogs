@@ -10,6 +10,8 @@ const postRoute = require("./routes/posts.js")
 const commentRoute = require("./routes/comments.js")
 const cookieParser = require("cookie-parser")
 const multer = require("multer")
+const User = require("./models/User");
+const bcrypt = require("bcrypt");
 
 const connectDB = async()=>{
   try{
